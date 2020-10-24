@@ -5,9 +5,17 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view />
+    <tabbar class="tab"></tabbar>
   </div>
 </template>
-
+<script>
+import tabbar from './components/Tab';
+export default {
+  components:{
+    tabbar
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,7 +24,11 @@
   text-align: center;
   color: #2c3e50;
 }
-
+.tab{
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}
 #nav {
   padding: 30px;
 }
