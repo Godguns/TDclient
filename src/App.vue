@@ -5,12 +5,18 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view />
-    <tabbar class="tab"></tabbar>
+    <tabbar  class="tab"></tabbar>
   </div>
 </template>
 <script>
 import tabbar from './components/Tab';
 export default {
+  data(){
+    return {
+     
+    }
+  },
+ 
   components:{
     tabbar
   }
@@ -28,6 +34,9 @@ export default {
   position: fixed;
   bottom: 0;
   z-index: 99;
+}
+>>>.tab{
+  background-color: #00c777;
 }
 #nav {
   padding: 30px;

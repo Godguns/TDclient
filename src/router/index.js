@@ -1,11 +1,23 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import mine from "../views/Mine.vue"
+import mine from "../views/Mine.vue";
+import Login from "../views/Login.vue";
+import Sign from "../views/Sign.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path:"/sign",
+    name:"sign",
+    component:Sign
+  },
+  {
+    path:"/login",
+    name:"login",
+    component:Login
+  },
   {
     path:"/mine",
     name:"mine",
@@ -26,8 +38,10 @@ const routes = [
   }
 ];
 
+
 const router = new VueRouter({
   routes
 });
+
 
 export default router;
