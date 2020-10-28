@@ -15,7 +15,7 @@
       <div class="topbg"></div>
 
       <div class="content">
-        <p class="tip-msg">专栏</p>
+        <p class="tip-msg"></p>
         <grid class="grid"></grid>
         <!-- <card :msg="msg" class="card"></card> -->
          <p class="tip-msg-zl">全部课程</p>
@@ -122,7 +122,7 @@ export default {
   font-weight: 900;
   margin-top: 50px;
   padding-bottom: 10px;
-  padding-top: 8px;
+  padding-top: 12px;
 
 }
 .card {
