@@ -4,10 +4,16 @@ import Home from "../views/Home.vue";
 import mine from "../views/Mine.vue";
 import Login from "../views/Login.vue";
 import Sign from "../views/Sign.vue";
-
+import Public from '../views/Public';
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path:"/public",
+    name:"public",
+    component:Public
+    
+  },
   {
     path:"/sign",
     name:"sign",
