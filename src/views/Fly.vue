@@ -12,28 +12,35 @@
     </div>
     <div class="content">
        
-      <card :msg="msg"></card>
-      <test class="tips" :msg="msg"></test>
+      <card v-for="(item,index) in datas" :key="index" :msg="item"></card>
+     
     </div>
   </div>
 </template>
 <script>
 import card from "../components/LessonCard";
 import notice from '../components/NoticeBar ';
-import test from '../components/test'
+
 export default {
   data() {
     return {
-      msg: {
-        title: "大数据开发训练营",
-        article:
-          "Java,Python等0基础皆可报名预科班+正式班,手把手带你搞定大数据核心技能"
-      }
+      
+          datas:""
+      
     };
   },
   components: {
     card,
-    notice,test
+    notice,
+  },
+  mounted(){
+    this.$axios({
+      method:'get',
+      url:'/getproject'
+    }).then(response=>{
+      console.log(response.data)
+      this.datas=response.data.data
+    })
   }
 };
 </script>

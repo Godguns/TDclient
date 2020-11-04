@@ -5,12 +5,12 @@
                  <van-image round fit="cover" class="avater" src="http://dongdove.cn/Fh9kDoXIkO_qm30871JoNEMabhpm" alt=""/>
             </div>
            <div class="title">
-                <div class="name"><h3>Godguns</h3></div>
-            <div class="time">2020-11-01</div>
+                <div class="name"><h3>{{msg.username}}</h3></div>
+            <div class="time">{{msg.time}}</div>
            </div>
         </div>
         <div class="content">
-            又是晴朗的一天，太阳红彤彤，花儿五颜六色☀️
+            {{msg.content}}
         </div>
         <div class="footer">
 
@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-    props:['data']
+    props:['msg']
 }
 </script>
 <style scoped>

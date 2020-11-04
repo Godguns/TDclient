@@ -20,9 +20,9 @@
           <ul class="con">
             <li>
               
-              <book class="book"></book>
-              <book class="book"></book>
-               <book class="book"></book>
+                <book :msg="item" v-for="(item,index ) in list" :key="index">
+
+                </book>
             </li>
             <li></li>
           </ul>
@@ -61,9 +61,19 @@ export default {
         this.scroll.refresh();
       }
     });
+    this.$axios({
+      method:"get",
+      url:"/getpics"
+    }).then(response=>{
+      this.list=response.data.data
+      console.log(response.data.data)
+    })
   },
   data() {
-    return {};
+    return {
+      list:[]
+    };
+
   },
 };
 </script>

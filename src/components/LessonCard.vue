@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div class="header">{{msg.title}}</div>
+    <div class="header">{{msg.name}}</div>
     <div class="content">
-      <p>{{msg.article}}</p>
+      <p>{{msg.content}}</p>
     </div>
   </div>
 </template>
