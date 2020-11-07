@@ -2,7 +2,7 @@
     <div class="home">
         <div class="header">
             <div class="avater">
-                 <van-image round fit="cover" class="avater" src="http://dongdove.cn/Fh9kDoXIkO_qm30871JoNEMabhpm" alt=""/>
+                 <van-image round fit="cover" class="avater" :src="msg.avater" alt=""/>
             </div>
            <div class="title">
                 <div class="name"><h3>{{msg.username}}</h3></div>

@@ -106,6 +106,8 @@ export default {
          sessionStorage.setItem('username',response.data.data.username)
         sessionStorage.setItem('token',response.data.data.token)
         sessionStorage.setItem('avater',response.data.data.avater)
+        sessionStorage.setItem('id',response.data.data._id)
+        sessionStorage.setItem('collect',response.data.data.collect)
         this.show=false
         this.$router.push({path:'/'})
       })

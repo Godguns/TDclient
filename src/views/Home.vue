@@ -35,7 +35,7 @@
 
 <script>
 import book from "../components/BookCard";
-import BScroll from "better-scroll";
+//import BScroll from "better-scroll";
 import grid from "../components/Grid";
 
 export default {
@@ -45,22 +45,7 @@ export default {
     grid,
   },
   mounted() {
-    this.$nextTick(() => {
-      //$refs绑定元素
-      if (!this.scroll) {
-        this.scroll = new BScroll(this.$refs.wrapper, {
-          //开启点击事件 默认为false
-          click: true,
-        });
-        this.scroll.refresh();
-        // console.log(this.scroll)
-      } else if (!this.$refs.wrapper) {
-        this.scroll.refresh();
-        return;
-      } else {
-        this.scroll.refresh();
-      }
-    });
+   
     this.$axios({
       method:"get",
       url:"/getpics"
@@ -105,9 +90,10 @@ export default {
 }
 .wrapper {
   width: 100vw;
-  height: 70vh;
+ 
   overflow: hidden;
-  padding-top: 50px;
+  
+  padding-top: 20px;
   z-index: 1;
 }
 

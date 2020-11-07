@@ -9,7 +9,10 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 axios.defaults.baseURL='http://localhost:4001';
 Vue.prototype.$axios = axios;  
-
+import {Message, Icon,Upload } from 'element-ui';
+Vue.prototype.$message = Message;
+Vue.use(Upload);
+Vue.use(Icon);
 Vue.use(Vant);
 router.beforeEach((to,form,next) =>{
   //如果进入到的路由是登录页或者注册页面，则正常展示

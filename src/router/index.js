@@ -5,9 +5,21 @@ import mine from "../views/Mine.vue";
 import Login from "../views/Login.vue";
 import Sign from "../views/Sign.vue";
 import Public from '../views/Public';
+import TuiJian from '../views/TuiJian.vue'
+import info from '../views/LessonInfo.vue'
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path:'/info/:data',
+    name:"info",
+    component:info
+  },
+  {
+    path:"/tuijian",
+    name:"tj",
+    component:TuiJian
+  },
   {
     path:"/public",
     name:"public",
