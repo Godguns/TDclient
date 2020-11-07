@@ -9,9 +9,14 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 axios.defaults.baseURL='http://localhost:4001';
 Vue.prototype.$axios = axios;  
-import {Message, Icon,Upload } from 'element-ui';
+import {Timeline,Card,
+  TimelineItem,Message, Icon,Upload } from 'element-ui';
 Vue.prototype.$message = Message;
 Vue.use(Upload);
+Vue.use(Card
+  )
+Vue.use(Timeline);
+Vue.use(TimelineItem)
 Vue.use(Icon);
 Vue.use(Vant);
 router.beforeEach((to,form,next) =>{

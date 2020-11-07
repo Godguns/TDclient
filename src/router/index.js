@@ -7,9 +7,15 @@ import Sign from "../views/Sign.vue";
 import Public from '../views/Public';
 import TuiJian from '../views/TuiJian.vue'
 import info from '../views/LessonInfo.vue'
+import album from '../views/Album.vue';
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path:'/album',
+    name:"album",
+    component:album
+  },
   {
     path:'/info/:data',
     name:"info",
