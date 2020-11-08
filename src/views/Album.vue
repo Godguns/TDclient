@@ -13,18 +13,20 @@
 
 
 
-<div class="block">
+<div v-for="(item,index) in albums" :key="index" class="block">
   <el-timeline>
-    <el-timeline-item timestamp="2018/4/12" placement="top">
+    <el-timeline-item :timestamp="item.Album_time" placement="top">
       <el-card>
-        <h4>更新 Github 模板</h4>
-        <p>王小虎 提交于 2018/4/12 20:46</p>
+        <h4>{{item.Album_name}}</h4>
+        <p>{{item.Album_info}}</p>
         <div class="box">
              <van-image
-             v-for="(item,index) in images"
-             :key="index"
+             @click="show(index2,index)"
+             v-for="(item,index2) in item.Album_imgs"
+             :key="index2"
           width="60px"
           height="60px"
+          class="imga"
           fit="cover"
           :src="item"
         />
@@ -43,19 +45,17 @@
 <script>
 import Vue from "vue";
 import { Lazyload } from "vant";
+import { ImagePreview } from 'vant';
 
 Vue.use(Lazyload);
 export default {
   data() {
     return {
       images: [
-        "http://dongdove.cn/Fop1GN8dc3NYVhDlnLfNKEybsTXB",
-        "https://pic5.40017.cn/i/ori/UD4oAmvC6c.jpg",
-         "http://dongdove.cn/Fop1GN8dc3NYVhDlnLfNKEybsTXB",
-        "https://pic5.40017.cn/i/ori/UD4oAmvC6c.jpg",
-         "http://dongdove.cn/Fop1GN8dc3NYVhDlnLfNKEybsTXB",
-        "https://pic5.40017.cn/i/ori/UD4oAmvC6c.jpg"
+       
       ],
+      albums:[],
+      albumings:[]
       
     };
   },
@@ -64,6 +64,12 @@ export default {
    this.getBanner()
   },
   methods:{
+   show(e,i){
+     
+   
+     console.log(e)
+      ImagePreview({images:this.albums[i].Album_imgs, closeable: true})
+   },
       getAlbum(){
              this.$axios({
           url:'/get_album',
@@ -71,6 +77,7 @@ export default {
 
       }).then(res=>{
           console.log(res.data.data)
+          this.albums=res.data.data
           
       })
       },
@@ -79,13 +86,19 @@ export default {
               url:'/get_banner',
               method:"get",
           }).then(res=>{
-              console.log(res.data.data)
+             
+              res.data.data.forEach((item) => {
+                  this.images.push(item.banner)
+              }); 
           })
       }
   }
 };
 </script>
 <style scoped>
+.imga{
+  margin: 5px ;
+}
 .swip {
   width: 100vw;
     max-height: 39vh;
@@ -96,7 +109,7 @@ export default {
 }
 .box{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 </style>

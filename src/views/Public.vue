@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="talkhomee">
           <van-nav-bar
   title="标题"
   left-text="返回"
@@ -13,7 +13,9 @@
       <van-image round fit="cover" class="avater" :src="avater" alt />
     </div>
 
-    <msgcard class="talkmsg" :msg="item" v-for="(item ,index) in list" :key="index"></msgcard>
+    <div class="talkbox">
+      <msgcard class="talkmsg" :msg="item" v-for="(item ,index) in list" :key="index"></msgcard>
+    </div>
 
     <van-button
       @click="addNews"
@@ -106,8 +108,15 @@ export default {
 };
 </script>
 <style scoped>
+.talkhomee{
+  padding-bottom: 40px;
+}
+.talkbox{
+  margin-top: -30px;
+}
 .talkmsg{
   transform: scale(.95);
+  
 }
 .model {
   width: 100vw;
