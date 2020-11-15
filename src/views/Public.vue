@@ -102,6 +102,20 @@ export default {
         }
       }).then(response => {
         console.log(response.data);
+         this.$message({
+          message: '恭喜你，发布成功',
+          type: 'success'
+        });
+        this.show = false;
+      this.showmodel = false;
+          this.$axios({
+      method: "get",
+      url: "/api/v1/spit"
+    }).then(response => {
+      console.log(response.data);
+      this.list = response.data.data;
+    });
+
       });
     }
   }
